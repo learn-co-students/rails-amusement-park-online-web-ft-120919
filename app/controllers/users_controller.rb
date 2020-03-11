@@ -1,5 +1,9 @@
 class UsersController < ApplicationController 
 
+    def show
+        @user = User.find_by(id: params[:id])
+    end
+
     def new
         @user = User.new 
     end
@@ -19,16 +23,10 @@ class UsersController < ApplicationController
         redirect_to user_path(@user)
     end
 
-    def show
-        @user = User.find(params[:id])
-    end
-    
     private
 
     def user_params
         params.require(:user).permit(:name, :password_digest, :nausea, :happiness, :tickets, :height, :admin)
     end
-
-    
 
 end
