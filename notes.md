@@ -18,3 +18,7 @@ rails g model Rides user_id:integer attraction_id:integer --no-test-framework
 rails g migration add_published_status_to_posts published_status:string --no-test-framework
 
 rails g migration add_admin_to_users admin:boolean --no-test-framework
+
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+  <input type=submit value='logout'>
+<% end %>

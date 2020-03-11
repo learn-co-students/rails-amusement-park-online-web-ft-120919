@@ -1,0 +1,12 @@
+<h1>Name: <%= @attraction.name %></h1>
+<p>Total Number of Users: <%= @attraction.nausea_rating %></p>
+<p>Ticket Requirement: <%= @attraction.tickets %></p>
+<p>Height Requirement: <%= @attraction.min_height %></p>
+<p>Nausea Rating: <%= @attraction.nausea_rating %></p>
+<p>Happy Rating:: <%= @attraction.happiness_rating %></p>
+
+<%= form_tag ({controller: 'users', action: 'show', method: 'post'}) do %>
+  <input type=submit value='Go on this ride'>
+<% end %>
+
+<%= link_to "See attractions", attractions_path %>
