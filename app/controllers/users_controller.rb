@@ -1,8 +1,14 @@
 class UsersController < ApplicationController 
 
     def show
-        @user = User.find_by(id: params[:id])
         # debugger
+        # @user = User.find_by(id: params[:id])
+        if session[:user_id]
+            @user = User.find_by(id: params[:id])
+            render '/users/show'
+        else
+            redirect_to '/'
+        end
     end
 
     def new
@@ -15,14 +21,9 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         # debugger
         redirect_to user_path(@user)
-        # redirect_to '/signin'
        else 
         redirect_to '/'
        end
-    end
-
-    def signin
-        @user = User.find_by(id: params[:id])
     end
 
     private
