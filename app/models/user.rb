@@ -3,10 +3,10 @@ class User < ApplicationRecord
 
     validates :name, presence: true
     validates :password_digest, presence: true
-    validates :height, presence: true
-    validates :happiness, presence: true
-    validates :nausea, presence: true
-    validates :tickets, presence: true 
+    #validates :height, presence: true
+    #validates :happiness, presence: true
+    #validates :nausea, presence: true
+    #validates :tickets, presence: true 
 
     has_many :rides
     has_many :attractions, through: :rides
@@ -18,10 +18,12 @@ class User < ApplicationRecord
     end #set_default_admin_status
 
     def mood
-      if self.nausea > self.happiness
-        "sad"
-      else
-        "happy"
-      end
+      if !self.admin
+        if self.nausea > self.happiness
+          "sad"
+        else
+          "happy"
+        end
+      end 
     end #mood
 end

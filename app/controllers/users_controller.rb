@@ -9,19 +9,26 @@ class UsersController < ApplicationController
     #binding.pry
     if @user.save
       session[:user_id] = @user.id 
-      redirect_to user_url(@user)
+      #redirect_to user_url(@user)
+      redirect_to user_path(@user)
     else
       render :new
     end
   end #create
 
   def show
+    # if params[:controller]
+
+    # else
+
+    # end 
     if session[:user_id]
       set_user
       render :show
     else
       redirect_to controller: 'welcome', action: 'home'
     end
+
   end
 
   private

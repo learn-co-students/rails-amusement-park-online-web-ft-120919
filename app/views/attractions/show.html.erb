@@ -1,0 +1,6 @@
+<h2><%= "#{@attraction.name}" %></h2>
+
+<%= form_tag ({controller: 'users', action: 'show', method: 'post'}) do %>
+  <input type=submit value='Go on this ride'>
+  <% binding.pry %>
+<% end %>

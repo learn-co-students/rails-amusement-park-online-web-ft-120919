@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   post '/signin', to: 'sessions#create'
   post '/logout', to: 'sessions#destroy'
 
+  post '/users/:id', to: 'users#show'
+
   root 'welcome#home'
 end

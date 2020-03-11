@@ -4,5 +4,15 @@
   <li><%= "Height: #{@user.height}" %></li>
   <li><%= "Mood: #{@user.mood}" %></li>
   <li><%= "Tickets: #{@user.tickets}" %></li>
-  <li><%= "ADMIN" if @user.admin %>
-<ul>
+  <% if @user.admin %>
+    <li><%= "ADMIN" %></li> 
+  <% end %>
+</ul>
+
+<br>
+
+<h2><%= link_to "See attractions", attractions_path %> 
+
+<br>
+
+<h2><%= link_to "Log Out", logout_path, method: "post" %></h2>
