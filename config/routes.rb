@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # post '/users' => 'users#create'
   # get '/users/:id' => 'users#show', as: 'user'
   # get '/secrets' => 'secrets#show'
-  resources :users, only: [:new, :create] 
-  get '/user/:id', to: 'users#show', as: 'user'
+  resources :users#, only: [:new, :create] 
+  #get '/users/:id', to: 'users#show', as: 'user'
+  get '/signin' => 'users#signin'
 end

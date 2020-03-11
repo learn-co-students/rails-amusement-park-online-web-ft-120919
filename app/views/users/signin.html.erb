@@ -1,0 +1,15 @@
+<%= form_for(@user) do |f| %>
+    <p>
+    <%= f.label "Your name:" %>
+
+    <%= f.collection_select(:user_id, User.all, :id, :name) %>
+    </p>   
+
+
+    <p>
+    <%= f.label "Your password:" %>
+    <%= f.text_field :password%>
+    </p>
+
+    <%= f.submit %>
+<% end %>
