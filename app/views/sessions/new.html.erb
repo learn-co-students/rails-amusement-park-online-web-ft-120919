@@ -1,0 +1,9 @@
+<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
+  <%= label_tag(:name, "Enter your name: ") %>
+  <%= collection_select :user, :name, User.all, :name, :name %><br><br>
+
+  <%= label_tag(:password, "Enter your password: ") %>
+  <%= password_field_tag :password %><br><br>
+
+  <%= submit_tag("Sign In") %>
+<% end %>
