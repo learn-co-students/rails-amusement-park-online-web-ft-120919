@@ -3,12 +3,17 @@ class UsersController < ApplicationController
     def show
         # debugger
         # @user = User.find_by(id: params[:id])
-        if session[:user_id]
-            @user = User.find_by(id: params[:id])
-            render '/users/show'
+        if request.post?
+            @ride = Ride.create(user_id: session[:user_id], attraction_id: params[:id] )
         else
-            redirect_to '/'
+            if session[:user_id]
+                @user = User.find_by(id: params[:id])
+                render '/users/show'
+            else
+                redirect_to '/'
+            end
         end
+        
     end
 
     def new
