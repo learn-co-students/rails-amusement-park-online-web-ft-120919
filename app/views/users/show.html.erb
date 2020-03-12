@@ -1,3 +1,8 @@
+<% if flash[:msg] %>
+<p> <%= flash[:msg] %>
+</p>
+<% end%>
+
 <h1>Name: <%= @user.name %></h1>
 <p>Nausea: <%= @user.nausea %></p>
 <p>Happiness: <%= @user.happiness %></p>
@@ -7,5 +12,6 @@
 <p>Mood: <%= @user.mood %></p>
 
 <%= link_to "See attractions", attractions_path %>
+<br>
 <br>
 <%= link_to "Log Out", logout_path, method: 'post' %>

@@ -2,18 +2,8 @@ class UsersController < ApplicationController
 
     def show
         # debugger
-        # @user = User.find_by(id: params[:id])
-        if request.post?
-            @ride = Ride.create(user_id: session[:user_id], attraction_id: params[:id] )
-        else
-            if session[:user_id]
-                @user = User.find_by(id: params[:id])
-                render '/users/show'
-            else
-                redirect_to '/'
-            end
-        end
-        
+        @user = User.find_by(id: params[:id])
+        redirect_to '/' if !session[:user_id]
     end
 
     def new
