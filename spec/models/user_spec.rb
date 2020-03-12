@@ -52,13 +52,13 @@ RSpec.describe User, :type => :model do
     expect(User.new(name: "Name")).not_to be_valid
   end
 
-  it "is valid with an admin boolean" do
-    expect(admin).to be_valid
-  end
+  # it "is valid with an admin boolean" do
+  #   expect(admin).to be_valid
+  # end
 
-  it "defaults to admin => false" do
-    expect(user.admin).to eq(false)
-  end
+  # it "defaults to admin => false" do
+  #   expect(user.admin).to eq(false)
+  # end
 
   it "has many rides" do
     first_ride = Ride.create(:user_id => user.id, :attraction_id => roller_coaster.id)
