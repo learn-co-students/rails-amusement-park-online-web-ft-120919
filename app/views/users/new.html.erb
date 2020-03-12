@@ -1,0 +1,25 @@
+<h2>Create a New User</h2>
+<%= form_for(@user) do |f| %>
+  <%= f.label "Name: " %>
+  <%= f.text_field :name %><br><br>
+
+  <%= f.label "Height (Inches): " %>
+  <%= f.text_field :height %><br><br>
+
+  <%= f.label "Happiness: " %>
+  <%= f.text_field :happiness %><br><br>
+
+  <%= f.label "Nausea: " %>
+  <%= f.text_field :nausea %><br><br>
+
+  <%= f.label "Tickets: " %>
+  <%= f.text_field :tickets %><br><br>
+
+  <%= f.label "Password: " %>
+  <%= f.password_field :password %><br><br>
+
+  <%= f.label "Are you admin?" %>
+  <%= f.check_box :admin %><br><br>
+
+  <%= f.submit "Create User" %>
+<% end %>
