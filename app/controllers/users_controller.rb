@@ -17,19 +17,29 @@ class UsersController < ApplicationController
   end #create
 
   def show
-    # if params[:controller]
+    #binding.pry 
+    #if params[:controller] == "attractions" #got here via post request
+    if request.post?  
+      @ride = Ride.create(user_id: session[:user_id], attraction_id: params[:id] )
+      flash[:message] = @ride.take_ride
+      @user = User.find_by(id: session[:user_id])
 
-    # else
-
-    # end 
-    if session[:user_id]
-      set_user
-      render :show
-    else
-      redirect_to controller: 'welcome', action: 'home'
-    end
-
-  end
+      if flash[:message] == true
+        flash[:message] = "Thanks for riding the #{Attraction.find_by(id: params[:id]).name}!"
+        #binding.pry 
+        redirect_to user_path(@user)
+      else
+        redirect_to user_path(@user)
+      end
+    else #got here via get request
+      if session[:user_id]
+        set_user
+        render :show
+      else
+        redirect_to controller: 'welcome', action: 'home'
+      end
+    end #get request/post request
+  end #show
 
   private
 
