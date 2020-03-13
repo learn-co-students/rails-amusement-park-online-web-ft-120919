@@ -1,0 +1,9 @@
+<h1>Log In</h1>
+
+<%= form_tag(sessions_path, method: :post) do %>
+  <%= label_tag(:name, "Name") %><br>
+  <%= collection_select(:user, :name, @users, :name, :name) %><br><br>
+  <%= label_tag(:password, "Password") %><br>
+  <%= password_field_tag(:password, nil) %><br><br>
+  <%= submit_tag("Sign In")%>
+<% end %> 

@@ -1,0 +1,15 @@
+<h1><%= @user.name %></h1>
+
+<% flash.each do |message, msg| %>
+  <div>
+    <h2><%= msg %></h2>
+  </div>
+<% end %>
+
+<% if @user.admin? %>
+  <h3>ADMIN</h3>
+<% end %>
+
+<h3>Mood: <%= @user.mood %></h3>
+<h3>Height: <%= @user.height %></h3>
+<h3>Tickets: <%= @user.tickets %></h3>
