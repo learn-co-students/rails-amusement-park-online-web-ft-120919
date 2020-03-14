@@ -29,6 +29,7 @@
 
     <!-- content -->
     <div class="container"  role="main">
+      <%= "ADMIN" if is_admin? %>
       <%= yield %>
     </div>
   </body>
