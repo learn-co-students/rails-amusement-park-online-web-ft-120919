@@ -14,7 +14,19 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
+        if logged_in?
+            @user = User.find(params[:id])
+        else
+            redirect_to root_path
+        end
+    end
+
+    def ride
+        # byebug
+        @ride = Ride.new(user_id: current_user.id, attraction_id: params[:format])
+        msg = @ride.take_ride
+        flash[:notice] = msg
+        redirect_to user_path(current_user)
     end
 
     private

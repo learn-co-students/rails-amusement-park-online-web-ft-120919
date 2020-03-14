@@ -1,0 +1,13 @@
+<ul>
+    <% @attractions.each do |attraction| %>
+        <% if current_user.admin %>
+            <% msg = "Show #{attraction.name}" %>
+        <% else %>
+            <% msg = "Go on #{attraction.name}" %>
+        <% end %>
+
+        <li><%= link_to msg, attraction_path(attraction) %></li>
+    <% end %>
+</ul>
+
+<%= link_to "New Attraction", new_attraction_path %>

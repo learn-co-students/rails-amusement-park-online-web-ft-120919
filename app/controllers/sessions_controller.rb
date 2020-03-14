@@ -1,12 +1,13 @@
 class SessionsController < ApplicationController
     def new
         # login from here
-        @user = User.new
+        
     end
 
     def create
-        @user = User.new(signin_params)
-        if @user.save
+        @user = User.find_by(name: signin_params[:user_name])
+        # byebug
+        if @user.authenticate(signin_params[:password])
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
@@ -15,12 +16,13 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-
+        session.destroy
+        redirect_to root_path
     end
 
     private
 
         def signin_params
-            params.require(:user).permit(:name, :password)
+            params.permit(:user_name, :password)
         end
 end
