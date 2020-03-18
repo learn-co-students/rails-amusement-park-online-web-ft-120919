@@ -13,7 +13,7 @@ RSpec.describe Attraction, :type => :model do
 
   it "is valid with a name, min_height, nausea_rating, happiness_rating, and ticket number" do
     expect(attraction).to be_valid
-  end
+  end 
 
   it "has many rides" do
     user = User.create(name: "Max Charles", password: "password")
