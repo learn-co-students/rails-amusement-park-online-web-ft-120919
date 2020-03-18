@@ -20,7 +20,7 @@ RSpec.describe Ride, :type => :model do
       :tickets => 4,
       :height => 34
     )
-  }
+  } 
 
   let(:ride) {
     Ride.create(user_id: user.id, attraction_id: attraction.id)
